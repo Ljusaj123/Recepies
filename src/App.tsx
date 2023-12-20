@@ -1,5 +1,12 @@
+import { Header, Footer } from "./modules";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <Header />
+      <Footer />
+    </>
+  );
 }
 
 export default App;
