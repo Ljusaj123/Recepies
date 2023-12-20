@@ -1,21 +1,23 @@
+import { NavLink } from "react-router-dom";
+
 export const Navbar = () => {
   return (
     <nav>
       <ul className="flex gap-x-4 justify-center sm:flex-row flex-col">
         <li>
-          <a href="#" className="link">
+          <NavLink to="/" className="link">
             Home
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="#" className="link">
+          <NavLink to="/about" className="link">
             About
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="#" className="link">
+          <NavLink to="/newsletter" className="link">
             Newsletter
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>
