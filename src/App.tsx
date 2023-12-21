@@ -1,7 +1,15 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { About, HomeLayout, Newsletter, Landing, Error } from "./pages";
+import {
+  About,
+  HomeLayout,
+  Newsletter,
+  Landing,
+  Error,
+  MealDetail,
+} from "./pages";
 
 import { loader as landingLoader } from "./pages/Landing.jsx";
+import { loader as singleMealLoader } from "./pages/MealDetail.tsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +25,11 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/meal/:id",
+        loader: singleMealLoader,
+        element: <MealDetail />,
       },
       {
         path: "/newsletter",

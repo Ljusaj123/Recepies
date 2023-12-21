@@ -14,7 +14,7 @@ export default function Search() {
         />
         <button
           type="submit"
-          className="btn py-4 px-4 ml-2 active:scale-90 duration-200 rounded"
+          className="btn p-4 ml-2 active:scale-90 duration-200 rounded"
         >
           Search
         </button>
