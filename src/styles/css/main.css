@@ -84,6 +84,7 @@ img {
 }
 
 .img {
+  width: 100%;
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
