@@ -131,3 +131,7 @@ img {
 .link:hover::after {
   width: 100%;
 }
+
+.btn {
+  background-color: #ebe8e9;
+}
