@@ -1,15 +1,24 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   About,
   HomeLayout,
-  Newsletter,
   Landing,
   Error,
   MealDetail,
+  SinglePageError,
 } from "./pages";
 
 import { loader as landingLoader } from "./pages/Landing.jsx";
 import { loader as singleMealLoader } from "./pages/MealDetail.tsx";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5,
+    },
+  },
+});
 
 const router = createBrowserRouter([
   {
@@ -19,21 +28,20 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: landingLoader,
+        loader: landingLoader(queryClient),
+        errorElement: <SinglePageError />,
         element: <Landing />,
       },
       {
         path: "/about",
+        errorElement: <SinglePageError />,
         element: <About />,
       },
       {
         path: "/meal/:id",
-        loader: singleMealLoader,
+        errorElement: <SinglePageError />,
+        loader: singleMealLoader(queryClient),
         element: <MealDetail />,
-      },
-      {
-        path: "/newsletter",
-        element: <Newsletter />,
       },
     ],
   },
@@ -41,9 +49,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-    </>
+    </QueryClientProvider>
   );
 }
 
