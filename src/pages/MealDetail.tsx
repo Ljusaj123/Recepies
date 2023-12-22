@@ -1,22 +1,37 @@
 import axios from "axios";
-import { useLoaderData, useNavigate, Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { useLoaderData, Link, Navigate } from "react-router-dom";
 
 const url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
 
-export const loader = async ({ params }) => {
-  const { id } = params;
-
-  const response = await axios.get(`${url}${id}`);
-  console.log(response);
-  return { data: response.data.meals, id };
+export const getSingleMeal = (id) => {
+  return {
+    queryKey: ["meal", id],
+    queryFn: async () => {
+      const { data } = await axios.get(`${url}${id}`);
+      return data.meals;
+    },
+  };
 };
+
+export const loader =
+  (queryClient) =>
+  async ({ params }) => {
+    const { id } = params;
+
+    await queryClient.ensureQueryData(getSingleMeal(id));
+    return { id };
+  };
 function MealDetail() {
-  const { data } = useLoaderData();
+  const { id } = useLoaderData();
+
+  const { data } = useQuery(getSingleMeal(id));
+
+  if (!data) return <Navigate to="/" />;
 
   const singleMeal = data[0];
 
   const {
-    idMeal: id,
     strMeal: name,
     strMealThumb: imageUrl,
     strArea: cousine,
@@ -36,10 +51,9 @@ function MealDetail() {
     const measure = measures[index];
     return measure + " " + ingredient;
   });
-  console.log(measuresAndIngredients);
 
   return (
-    <section className="container">
+    <section>
       <div className="text-center mb-8">
         <button className="btn mb-8 p-4 ml-2 active:scale-90 duration-200 rounded capitalize">
           <Link to="/">back home</Link>

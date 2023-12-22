@@ -111,11 +111,17 @@ img {
   }
 }
 .loading {
+  width: 100%;
+  min-height: 50vh;
+  padding-top: 3rem;
+}
+.loading > div {
+  margin: 0 auto;
   width: 6rem;
   height: 6rem;
-  border: 5px solid var(--grey-400);
+  border: 7px solid #ebe8e9;
   border-radius: 50%;
-  border-top-color: var(--primary-500);
+  border-top-color: #383d3b;
   -webkit-animation: spinner 0.6s linear infinite;
           animation: spinner 0.6s linear infinite;
 }
