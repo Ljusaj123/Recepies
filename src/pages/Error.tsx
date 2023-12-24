@@ -1,9 +1,12 @@
 import errorImg from "../assets/error.svg";
-import { Link, useRouteError } from "react-router-dom";
+import { Link, isRouteErrorResponse, useRouteError } from "react-router-dom";
 
 function Error() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const error: any = useRouteError(); // rijesit kasnije
+  const error = useRouteError() as Error;
+
+  if (!isRouteErrorResponse(error)) {
+    return null;
+  }
 
   if (error.status === 404) {
     return (

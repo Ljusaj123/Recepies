@@ -5,7 +5,6 @@ function HomeLayout() {
   const navigation = useNavigation();
 
   const isPageLoading = navigation.state === "loading";
-  const value = "some value";
   return (
     <>
       <Header />
@@ -15,7 +14,7 @@ function HomeLayout() {
             <div></div>
           </div>
         ) : (
-          <Outlet context={{ value }} />
+          <Outlet />
         )}
       </main>
       <Footer />

@@ -1,29 +1,10 @@
-import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useLoaderData, Link, Navigate } from "react-router-dom";
+import { getSingleMeal } from "../utils/queries";
+import { MealDetails } from "../models";
 
-const url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
-
-export const getSingleMeal = (id) => {
-  return {
-    queryKey: ["meal", id],
-    queryFn: async () => {
-      const { data } = await axios.get(`${url}${id}`);
-      return data.meals;
-    },
-  };
-};
-
-export const loader =
-  (queryClient) =>
-  async ({ params }) => {
-    const { id } = params;
-
-    await queryClient.ensureQueryData(getSingleMeal(id));
-    return { id };
-  };
 function MealDetail() {
-  const { id } = useLoaderData();
+  const { id } = useLoaderData() as { id: string };
 
   const { data } = useQuery(getSingleMeal(id));
 
@@ -37,7 +18,7 @@ function MealDetail() {
     strArea: cousine,
     strCategory: category,
     strInstructions: instructions,
-  } = singleMeal;
+  }: MealDetails = singleMeal;
 
   const ingredients = Object.keys(singleMeal)
     .filter((key) => key.startsWith("strIngredient") && singleMeal[key] !== "")
@@ -55,7 +36,7 @@ function MealDetail() {
   return (
     <section>
       <div className="text-center mb-8">
-        <button className="btn mb-8 p-4 ml-2 active:scale-90 duration-200 rounded capitalize">
+        <button className="btn mb-16 p-4 active:scale-90 duration-200 rounded capitalize">
           <Link to="/">back home</Link>
         </button>
         <h3 className="">{name}</h3>

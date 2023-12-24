@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
+import { Meal } from "../models";
 
-export const RecepieCard = ({ id, name, imageUrl, cousine, category }) => {
+export const RecepieCard = (meal: Meal) => {
+  const {
+    idMeal: id,
+    strMeal: name,
+    strMealThumb: imageUrl,
+    strArea: cousine,
+    strCategory: category,
+  } = meal;
+
   return (
     <article className="border-2 rounded-lg grid gap-4">
       <img src={imageUrl} alt={name} className="img rounded-t-md" />

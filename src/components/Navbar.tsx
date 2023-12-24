@@ -14,11 +14,6 @@ export const Navbar = () => {
             About
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/newsletter" className="link">
-            Newsletter
-          </NavLink>
-        </li>
       </ul>
     </nav>
   );

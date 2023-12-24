@@ -1,11 +1,11 @@
 import { Form, useNavigation } from "react-router-dom";
 
-export default function Search({ searchTerm }) {
+export default function Search({ searchTerm }: { searchTerm: string }) {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
 
   return (
-    <section className="container">
+    <section className="mb-16">
       <Form className="mx-auto max-w-fit">
         <input
           type="search"
