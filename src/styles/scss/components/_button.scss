@@ -2,4 +2,27 @@
 
 .btn {
   background-color: $background-color;
+  transition: transform 0.3s ease;
+  border-radius: 4px;
+  padding: 1rem;
+  text-transform: capitalize;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.link {
+  &::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0%;
+    background-color: black;
+    transition: all 0.5s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
 }

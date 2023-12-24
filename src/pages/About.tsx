@@ -1,8 +1,8 @@
 function About() {
   return (
     <section className="container min-h-70">
-      <h2>About</h2>
-      <p className="leading-8 mt-8">
+      <h2 className="mb-8">About</h2>
+      <p className="paragraph">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit adipisci
         laborum officiis quod, nemo, cum veniam laboriosam autem error aut
         fugiat, voluptatem impedit eius accusantium doloremque minima non
