@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useLoaderData, Link, Navigate, useNavigate } from "react-router-dom";
+import { useLoaderData, Navigate, useNavigate } from "react-router-dom";
 import { getSingleMeal } from "../utils/queries";
 import { MealDetails } from "../models";
 
