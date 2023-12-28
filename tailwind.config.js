@@ -11,9 +11,10 @@ export const theme = {
 
     colors: {
       textColor: "#383d3b",
-      backgroundColor: "#ebe8e9",
-      textColorDarkMode: "#cacecc",
-      BackgroundColorDarkMode: "#312028",
+      backgroundColor: "#908287",
+      textColorDarkMode: "#edebeb",
+      darkMode: "#533f48",
+      backgroundColorDarkMode: "#73626a",
     },
     fontFamily: {
       Roboto: ["Roboto", "sans-serif"],
