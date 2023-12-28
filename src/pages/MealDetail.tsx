@@ -51,14 +51,14 @@ function MealDetail() {
         </div>
 
         <div>
-          <p className="paragraph">
-            <span className="mr-2 border-b-2">Cousine:</span> {cousine}
+          <p className="paragraph mt-0">
+            <span className="detail-name">Cousine:</span> {cousine}
           </p>
           <p className="paragraph">
-            <span className="mr-2 border-b-2">Category:</span> {category}
+            <span className="detail-name">Category:</span> {category}
           </p>
           <p className="paragraph">
-            <span className="mr-2 border-b-2">Ingredients:</span>
+            <span className="detail-name">Ingredients:</span>
 
             {measuresAndIngredients.map((ing, index) => {
               return (
@@ -69,7 +69,7 @@ function MealDetail() {
             })}
           </p>
           <p className="paragraph">
-            <span className="mr-2 border-b-2"> Instructions:</span>
+            <span className="detail-name"> Instructions:</span>
             {instructions}
           </p>
         </div>

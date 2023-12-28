@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Proxima Nova", system-ui, sans-serif;
+    font-size: 100%;
+  }
+
+  body {
+    font-family: theme("fontFamily.Roboto") system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+    line-height: 1;
+    color: theme("colors.textColor");
+    font-weight: 400;
+  }
+
+  header,
+  footer {
+    background: theme("colors.backgroundColor");
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+    font-family: theme("fontFamily.Playfair");
+    text-transform: capitalize;
+    letter-spacing: 1px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2.5vw, 2.5rem);
+  }
+
+  h4 {
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  h5 {
+    font-size: clamp(0.875rem, 1.5vw, 1.5rem);
+  }
+
+  p,
+  label,
+  a {
+    margin: 0;
+    font-size: clamp(0.8rem, 1vw, 1.3rem);
+  }
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+@layer components {
+  .img {
+    @apply w-full block object-cover;
+  }
+
+  .container {
+    @apply my-0 mx-auto py-12 px-8;
+  }
+
+  .btn {
+    @apply bg-backgroundColor duration-300 rounded p-4 capitalize active:scale-90;
+  }
+
+  .link {
+    @apply after:content-[''] after:block after:h-0.5 after:w-0 after:bg-black after:duration-500 hover:after:w-full;
+  }
+
+  .paragraph {
+    @apply my-4 leading-8;
+  }
+
+  .detail-name {
+    @apply mr-2 border-b-2;
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  width: 100%;
+  min-height: 50vh;
+  padding-top: 3rem;
+
+  & > div {
+    margin: 0 auto;
+    width: 6rem;
+    height: 6rem;
+    border: 7px solid #ebe8e9;
+    border-radius: 50%;
+    border-top-color: #cacecc;
+    animation: spinner 0.6s linear infinite;
+  }
+}

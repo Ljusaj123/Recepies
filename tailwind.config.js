@@ -5,6 +5,20 @@ export const theme = {
     minHeight: {
       70: "70vh",
     },
+    width: {
+      95: "95vw",
+    },
+
+    colors: {
+      textColor: "#383d3b",
+      backgroundColor: "#ebe8e9",
+      textColorDarkMode: "#cacecc",
+      BackgroundColorDarkMode: "#312028",
+    },
+    fontFamily: {
+      Roboto: ["Roboto", "sans-serif"],
+      Playfair: ["Playfair\\Display", "serif"],
+    },
   },
 };
-export const plugins = [];
+export const plugins = ["tailwindcss", "autoprefixer"];

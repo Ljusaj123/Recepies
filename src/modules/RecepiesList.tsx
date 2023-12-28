@@ -8,7 +8,7 @@ export default function RecepiesList({ meals }: Meals) {
     );
   }
   return (
-    <section className="sm:container grid sm:grid-cols-3 gap-16">
+    <section className="grid sm:grid-cols-2 md:grid-cols-3 gap-24 mt-24">
       {meals.map((meal: Meal) => {
         return <RecepieCard key={meal.idMeal} {...meal} />;
       })}
