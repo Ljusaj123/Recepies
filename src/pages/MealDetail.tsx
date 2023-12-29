@@ -37,10 +37,7 @@ function MealDetail() {
   return (
     <section>
       <div className="text-center mb-8">
-        <button
-          className="btn mb-16 p-4 active:scale-90 duration-200 rounded capitalize"
-          onClick={() => navigate(-1)}
-        >
+        <button className="btn mb-16" onClick={() => navigate(-1)}>
           back home
         </button>
         <h3 className="">{name}</h3>

@@ -13,17 +13,19 @@
       BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans",
       "Helvetica Neue", sans-serif;
     line-height: 1;
-    color: theme("colors.textColor");
     font-weight: 400;
 
-    @apply dark:text-textColorDarkMode dark:bg-darkMode;
+    @apply dark:text-primary-100 dark:bg-surface-100 bg-color-surface-100 text-color-primary-100;
   }
 
   header,
   footer {
-    background: theme("colors.darkMode");
-    color: theme("colors.textColorDarkMode");
-    @apply dark:bg-backgroundColorDarkMode;
+    @apply dark:bg-surface-300 bg-color-surface-300;
+  }
+
+  footer {
+    filter: drop-shadow(0 -4px 3px rgb(0 0 0 / 0.07))
+      drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
   }
 
   h1,
@@ -82,7 +84,7 @@
   }
 
   input {
-    @apply dark:bg-darkMode dark:placeholder:text-textColorDarkMode;
+    @apply dark:bg-surface-200 dark:placeholder:text-primary-300 bg-color-surface-500 placeholder:text-color-primary-200 rounded leading-8 text-lg py-2 px-4 max-w-60;
   }
 }
 
@@ -96,15 +98,19 @@
   }
 
   .btn {
-    @apply bg-darkMode duration-300 rounded p-4 capitalize active:scale-90 dark:bg-backgroundColorDarkMode text-textColorDarkMode;
+    @apply bg-color-primary-100 duration-300 rounded-3xl py-3 px-4 capitalize active:scale-90 dark:bg-primary-500 dark:text-black leading-6 text-white;
   }
 
   .link {
-    @apply after:content-[''] after:block after:h-0.5 after:w-0 after:bg-textColorDarkMode after:duration-500 hover:after:w-full;
+    @apply after:content-[''] after:block after:h-0.5 after:w-0 after:bg-color-primary-100 dark:after:bg-primary-100 after:duration-500 hover:after:w-full;
   }
 
   .paragraph {
     @apply my-4 leading-8;
+  }
+
+  .card {
+    @apply border rounded-lg grid gap-4 border-color-primary-100 dark:border-primary-300 dark:bg-surface-200 bg-color-surface-400;
   }
 
   .detail-name {

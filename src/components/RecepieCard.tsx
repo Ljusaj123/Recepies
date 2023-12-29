@@ -11,7 +11,7 @@ export const RecepieCard = (meal: Meal) => {
   } = meal;
 
   return (
-    <article className="border-2 rounded-lg grid gap-4">
+    <article className="card">
       <img src={imageUrl} alt={name} className="img rounded-t-md" />
       <div className="py-4 px-2">
         <h4 className="font-bold mb-8">{name}</h4>
