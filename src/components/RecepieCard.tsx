@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import { Meal } from "../models";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  Stack,
+  Text,
+  Heading,
+  Divider,
+  Button,
+  Image,
+} from "@chakra-ui/react";
 
-export const RecepieCard = (meal: Meal) => {
+const RecepieCard = (meal: Meal) => {
   const {
     idMeal: id,
     strMeal: name,
@@ -11,16 +22,23 @@ export const RecepieCard = (meal: Meal) => {
   } = meal;
 
   return (
-    <article className="card">
-      <img src={imageUrl} alt={name} className="img rounded-t-md" />
-      <div className="py-4 px-2">
-        <h4 className="font-bold mb-8">{name}</h4>
-        <p className="paragraph">{cousine}</p>
-        <p className="paragraph font-extralight">{category}</p>
-        <button className="btn">
+    <Card variant="outline" maxW="sm">
+      <CardBody>
+        <Image src={imageUrl} alt={name} borderRadius="md" />
+        <Stack mt="6" spacing="3">
+          <Heading size="lg">{name}</Heading>
+          <Text fontSize="lg"> {cousine}</Text>
+          <Text> {category}</Text>
+        </Stack>
+      </CardBody>
+      <Divider />
+      <CardFooter>
+        <Button variant="outline" colorScheme="blue" size="lg">
           <Link to={`/meal/${id}`}>Details</Link>
-        </button>
-      </div>
-    </article>
+        </Button>
+      </CardFooter>
+    </Card>
   );
 };
+
+export default RecepieCard;

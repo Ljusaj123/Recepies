@@ -2,7 +2,6 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import {
-  About,
   HomeLayout,
   Landing,
   Error,
@@ -11,6 +10,7 @@ import {
 } from "./pages";
 
 import { DetailsLoader, SearchLoader } from "./utils/loaders.tsx";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,11 +33,6 @@ const router = createBrowserRouter([
         element: <Landing />,
       },
       {
-        path: "/about",
-        errorElement: <SinglePageError />,
-        element: <About />,
-      },
-      {
         path: "/meal/:id",
         errorElement: <SinglePageError />,
         loader: DetailsLoader(queryClient),
@@ -49,10 +44,12 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-      <ReactQueryDevtools initialIsOpen={true} />
-    </QueryClientProvider>
+    <ChakraProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <ReactQueryDevtools initialIsOpen={true} />
+      </QueryClientProvider>
+    </ChakraProvider>
   );
 }
 

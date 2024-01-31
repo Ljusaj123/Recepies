@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useLoaderData, Navigate, useNavigate } from "react-router-dom";
 import { getSingleMeal } from "../utils/queries";
 import { MealDetails } from "../models";
+import { Stack, Text, Button, Image } from "@chakra-ui/react";
 
 function MealDetail() {
   const navigate = useNavigate();
@@ -37,26 +38,28 @@ function MealDetail() {
   return (
     <section>
       <div className="text-center mb-8">
-        <button className="btn mb-16" onClick={() => navigate(-1)}>
-          back home
-        </button>
-        <h3 className="">{name}</h3>
+        <Button
+          variant="outline"
+          colorScheme="blue"
+          size="lg"
+          onClick={() => navigate(-1)}
+          className="mb-16"
+        >
+          Back home
+        </Button>
+        <Text fontSize="5xl">{name}</Text>
       </div>
       <div className="grid md:grid-cols-2 gap-16 my-10 pt-8">
-        <div>
-          <img src={imageUrl} alt={name} />
-        </div>
-
-        <div>
-          <p className="paragraph mt-0">
-            <span className="detail-name">Cousine:</span> {cousine}
-          </p>
-          <p className="paragraph">
-            <span className="detail-name">Category:</span> {category}
-          </p>
-          <p className="paragraph">
-            <span className="detail-name">Ingredients:</span>
-
+        <Image src={imageUrl} alt={name} />
+        <Stack spacing="4">
+          <Text fontSize="2xl">
+            <Text as="b">Cousine:</Text> {cousine}
+          </Text>
+          <Text fontSize="2xl">
+            <Text as="b">Category:</Text> {category}
+          </Text>
+          <Text fontSize="2xl">
+            <Text as="b">Ingredients:</Text>
             {measuresAndIngredients.map((ing, index) => {
               return (
                 <span key={index}>
@@ -64,12 +67,12 @@ function MealDetail() {
                 </span>
               );
             })}
-          </p>
-          <p className="paragraph">
-            <span className="detail-name"> Instructions:</span>
+          </Text>
+          <Text fontSize="2xl">
+            <Text as="b"> Instructions:</Text>
             {instructions}
-          </p>
-        </div>
+          </Text>
+        </Stack>
       </div>
     </section>
   );

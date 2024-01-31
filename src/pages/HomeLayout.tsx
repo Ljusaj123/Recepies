@@ -1,5 +1,6 @@
 import { Outlet, useNavigation } from "react-router-dom";
-import { Footer, Header } from "../modules";
+import { Header } from "../components";
+import { Spinner } from "@chakra-ui/react";
 
 function HomeLayout() {
   const navigation = useNavigation();
@@ -8,16 +9,21 @@ function HomeLayout() {
   return (
     <>
       <Header />
-      <main className="container">
+      <main className="container mx-auto mt-20 max-[640px]:max-w-64">
         {isPageLoading ? (
-          <div className="loading">
-            <div></div>
+          <div className="text-center">
+            <Spinner
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="blue.500"
+              size="xl"
+            />
           </div>
         ) : (
           <Outlet />
         )}
       </main>
-      <Footer />
     </>
   );
 }

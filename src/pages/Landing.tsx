@@ -1,4 +1,4 @@
-import { Search, RecepiesList } from "../modules";
+import { Search, RecepiesList } from "../components";
 import { useLoaderData } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { searchCoctailsQuery } from "../utils/queries";
