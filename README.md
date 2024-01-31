@@ -4,7 +4,7 @@ Tasty is a simple app in ReactJS that show a list of recepies.
 
 ## Live demo
 
-Link : []()
+Link : [https://peaceful-muffin-7ac6da.netlify.app/](https://peaceful-muffin-7ac6da.netlify.app/)
 
 ## Techologies
 
@@ -13,6 +13,7 @@ Link : []()
 - Axios
 - Chakra UI
 - React Query
+- Tailwind
 
 ## Features
 
